@@ -3,26 +3,62 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Placeholder</title>
+        <link rel="stylesheet" href="chart_style.css">
     </head>
     <body>
         <h1> Football reason #1</h1>
         <p>This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is whyThis is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!This is why!</p>
         <h2>Football reason chart</h2>
-        <canvas id="fbchart1"></canvas>
+        <canvas id="fbchart1" class="canvas1" width="300" height="200"></canvas>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1"></script>
         <script>
             const chart1 = document.getElementById('fbchart1');
+            const centerValue = 50
             new Chart(chart1, {
                 type: 'bar',
                 data: {
-                    labels: ['1', '2', '3'],
+                    labels: ['4+', '3', '2', '1', '0'],
                     datasets: [{
-                        label: 'Label',
-                        data: [10, 15, 20]
-                    }]
+                        label: 'Turnover Margin',
+                        data: [100, 75, 70, 60, 50],
+                        backgroundColor: ['blue','blue','blue','blue','red'],
+                         }]
+                        },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false 
+                        },
+                    },
+                    
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'TO Margin',
+                                font: {
+                                    size: 14
+                                
+                                },
+                                color: 'black'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Win %',
+                                font: {
+                                    size: 14
+                                
+                                },
+                                color: 'black'
+                            }
+                        }
                     }
                 }
-            );
+            })
         </script>
 
     </body>
