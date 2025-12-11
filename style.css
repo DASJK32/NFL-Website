@@ -2,11 +2,15 @@ body {
     margin: 0;
     color: white;
     font-family: "Oswald", sans-serif;
-    background: linear-gradient(to right,
+    background: 
+        url("grain_texture.png") repeat,
+        linear-gradient(to right,
         #B50B2A,
         #C60C30,
         #B50B2A
     );
+    background-size: auto, cover;
+    background-attachment: fixed, fixed;
 }
 
 
@@ -48,12 +52,13 @@ html {
 
 .content {
     margin: 0 auto;
-    width: 70%;
+    width: 65%;
     padding: 0;
     scrollbar-width: none;
-    background: #002244;
+    background: #022b4e;
     box-sizing: border-box;
     border: 2px solid rgba(255, 255, 255, 0.15);
+    line-height: 1.6;
     box-shadow:
     0 0 10px rgba(0,0,0,0.4),
     0 0 40px rgba(0,0,0,0.3);
@@ -69,16 +74,23 @@ html {
 .content p {
     color: white;
     margin-left: 20px;
+    font-weight: 400;
 }
 .content ul {
     margin-left: 10px;
 }
 .content :target {
-    scroll-margin: 100px;
+    scroll-margin: 50px;
+}
+.content h1,
+.content h2,
+.content p,
+.content ul {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .chart {
-    width: 80;
+    width: 70%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 20px;
@@ -91,15 +103,12 @@ html {
 
 .text {
     width: 80%;
-    font-size: 18px;
+    font-size: 24px;
     margin: 0 auto;
+    padding-top: 20px;
     text-align: left;
 }
-.text p, 
-.text h1, .text h2,
-.text ul {
-    font-size: 24px;
-}
+
 
 .banner {
     box-shadow: 0 10px 15px rgba(0,0,0,0.4);

@@ -3,10 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Winning in the NFL</title>
+        <title>Why Teams Win</title>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@320&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            Chart.defaults.color = 'white';
+            Chart.defaults.font.family = '"Oswald", sans-serif';
+            Chart.defaults.font.size = 16;
+</script>
     </head>
     <body>
         <div class="sidebar">
@@ -14,19 +19,20 @@
                 <h2>Content</h2>
                 <a href="#preamble">Preamble</a>
                 <a href="#section1">Field Position & Turnovers</a>
-                <a href="#section2">Quarterback Performance</a>
-                <a href="#section3">Team Efficiency Statistics</a>
+                <a href="#section2">Team Efficiency Statistics</a>
+                <a href="#section3">Quarterback Performance</a>
             </div><br>
             <div>
                 <h2>Links</h2>
-
+                <a href="https://www.nfeloapp.com" target="_blank">nfeloapp</a>
+                <a href="https://www.pro-football-reference.com/" target="_blank">pro-football-reference</a>
             </div>
         </div>
 
         <div class="content">
             <div class="banner">
                 <img src="bradyindallas.jpeg" alt="Website Banner">
-            </div> <br>
+            </div> 
             <div class="text">
                 <div>
                     <h1 id="preamble">Why Do Teams Win in the NFL?</h1>
@@ -52,7 +58,7 @@
                 </div><br><br><br>
                 <div>
                     <h1 id="section1">Field Position & Turnovers</h1>
-                    <p>Every drive must start somewhere, and the farther up field it starts, the more likely a team is to come away with points. Even minor differences is starting field position can have meaningful effects on the outcome of a game. </p>
+                    <p>Every drive must start somewhere, and the farther up field it starts, the more likely a team is to come away with points. Even minor differences in <heavy>starting field position</heavy> (SFP) can have a large impact on the outcome of a game. The first two things we will look at is Expected Points based on SFP and SFP Margin vs Winrate. </p>
                     <div class="chart">
                         <canvas id="FPtoEP"></canvas>
                         <script>
@@ -62,8 +68,74 @@
                                 data:  {
                                     labels: ['Own 1-10','Own 11-20','Own 21-30','Own 31-40','Own 41-50','Opp 49-40','Opp 39-30','Opp 29-20','Opp 19-10','Opp 9-1'],
                                     datasets: [{
+                                        label: 'SFP & Expected Points',
                                         data: [-0.7, 0.3, 0.8, 1.4, 2.0, 2.5, 3.0, 3.8, 4.5, 5.5]
                                     }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                boxWidth: 0
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Starting Field Position',
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Expected Points',
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            })
+                        </script>
+                    </div>
+                    <div class="chart">
+                        <canvas id="SFPMargin"></canvas>
+                        <script>
+                            const SFPMArginChart = document.getElementById('SFPMargin');
+                            new Chart(SFPMArginChart, {
+                                type: 'line',
+                                data:  {
+                                    labels: ['15 or more','10 to 15','5 to 10','0 to 5','-5 to 0','-10 to -5','-15 to -10','-15 or less'],
+                                    datasets: [{
+                                        label: 'SFP Margin vs Winrate',
+                                        data: [85.7, 78.3, 67.2, 53.2, 46.5, 32.1, 21.8, 14.5]
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                boxWidth: 0
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        x: {
+                                            categoryPercentage: 0.,
+                                            title: {
+                                                display: true,
+                                                text: 'SFP Margin',
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                display: true,
+                                                text: 'Winrate',
+                                            },
+                                            beginAtZero: true
+                                        }
+                                    }
                                 }
                             })
                         </script>
@@ -79,19 +151,29 @@
                                     labels: ['4+', '3', '2', '1'],
                                     datasets: [{
                                         label: 'TO Margin & Win Rate',
-                                        data: [98, 90, 84, 67]
+                                        data: [98, 90, 84, 67],
+                                        barPercentage: 0.5, 
                                     }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                boxWidth: 0
+                                            }
+                                        }
+                                    }
                                 }
                             })
                         </script>
                 </div><br><br><br>
                 <div>
                     <h1 id="section3">Team Efficiency Statistics</h1>
-                <p>Even more stuff...</p>
-                </div><br><br><br>
+                <p>Coming soon...</p>
+                </div><br><br><br><br><br><br><br><br><br><br><br><br>
                 <div>
                     <h1 id="section2">Quarterback Performance</h1>
-                    <p>More stuff...</p>
+                    <p>Coming soon...</p>
                 </div>
             </div>
         </div>
